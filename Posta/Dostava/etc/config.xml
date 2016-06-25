@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+	<default>
+        <carriers>
+            <carriercode>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+				<model>Posta\Dostava\Model\Carrier\Dostava</model>
+                <name>Posta Dostava</name>
+                <price>25.56</price>
+                <title>Posta Dostava</title>
+               <specificerrmsg>Posta Dostava nije dostupna za vase podrucje. Molimo vas da nas kontaktirate.</specificerrmsg>
+            </carriercode>
+        </carriers>
+    </default>
+</config>

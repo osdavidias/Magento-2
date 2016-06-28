@@ -12,9 +12,9 @@
                 <active>1</active>
                 <sallowspecific>0</sallowspecific>
 				<model>Posta\Dostava\Model\Carrier\Dostava</model>
-                <name>Posta Dostava</name>
+                <name>Posta</name>
                 <price>25.56</price>
-                <title>Posta Dostava</title>
+                <title>Dostava</title>
                <specificerrmsg>Posta Dostava nije dostupna za vase podrucje. Molimo vas da nas kontaktirate.</specificerrmsg>
             </carriercode>
         </carriers>

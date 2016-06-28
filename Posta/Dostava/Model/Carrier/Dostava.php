@@ -11,30 +11,16 @@ class Dostava extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
     protected $_code = 'carriercode';
 	
 	protected $_logger;
-    /**
-     * @var bool
-     */
+   
     protected $_isFixed = true;
 
-    /**
-     * @var \Magento\Shipping\Model\Rate\ResultFactory
-     */
     protected $_rateResultFactory;
 
 
-    /**
-     * @var \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory
-     */
+   
     protected $_rateMethodFactory;
 
-    /**
-     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-     * @param \Magento\Quote\Model\Quote\Address\RateResult\ErrorFactory $rateErrorFactory
-     * @param \Psr\Log\LoggerInterface $logger
-     * @param \Magento\Shipping\Model\Rate\ResultFactory $rateResultFactory
-     * @param \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory $rateMethodFactory
-     * @param array $data
-     */
+   
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Quote\Model\Quote\Address\RateResult\ErrorFactory $rateErrorFactory,
@@ -49,36 +35,34 @@ class Dostava extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
         parent::__construct($scopeConfig, $rateErrorFactory, $logger, $data);
     }
 
-    /**
-     * @param RateRequest $request
-     * @return \Magento\Shipping\Model\Rate\Result|bool
-     */
+    
+	// skuplja troškove dostave:
     public function collectRates(RateRequest $request)
     {
+		// ako nije aktiviran
         if (!$this->getConfigFlag('active')) {
             return false;
         }
 
-        /** @var \Magento\Shipping\Model\Rate\Result $result */
+       
         $result = $this->_rateResultFactory->create();
 		
-		$shippingPrice = $this->getConfigData('price');
-		$method = $this->_rateMethodFactory->create();
-		$method->setCarrier($this->_code);
-		$method->setCarrierTitle($this->getConfigData('title'));
-		$method->setMethod($this->_code);
-		$method->setMethodTitle($this->getConfigData('name'));
-		$method->setPrice($shippingPrice);
-		$method->setCost($shippingPrice);
-		$result->append($method);
+		// vrijednosti varijabli iz config.xml ubacuje pomoću $this->getConfigData()
+		$trosak = $this->getConfigData('price');
+		$nacin_dostave = $this->_rateMethodFactory->create();
+		$nacin_dostave->setCarrier($this->_code);
+		$nacin_dostave->setCarrierTitle($this->getConfigData('title'));
+		$nacin_dostave->setMethod($this->_code);
+		$nacin_dostave->setMethodTitle($this->getConfigData('name'));
+		$nacin_dostave->setPrice($trosak);
+
+		$result->append($nacin_dostave);
         
 
         return $result;
     }
 
-    /**
-     * @return array
-     */
+    
     public function getAllowedMethods()
     {
 		

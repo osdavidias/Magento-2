@@ -62,7 +62,7 @@ class Dostava extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
         return $result;
     }
 
-    
+    // vraca dostupne nacine dostave
     public function getAllowedMethods()
     {
 		

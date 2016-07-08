@@ -8,7 +8,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
 	<default>
         <carriers>
-            <carriercode>
+            <dostava>
                 <active>1</active>
                 <sallowspecific>0</sallowspecific>
 				<model>Posta\Dostava\Model\Carrier\Dostava</model>
@@ -16,7 +16,7 @@
                 <price>25.56</price>
                 <title>Dostava</title>
                <specificerrmsg>Posta Dostava nije dostupna za vase podrucje. Molimo vas da nas kontaktirate.</specificerrmsg>
-            </carriercode>
+            </dostava>
         </carriers>
     </default>
 </config>

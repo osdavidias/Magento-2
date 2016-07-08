@@ -8,7 +8,7 @@ class Dostava extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
 	// naslijeđuje klasu AbstractCarrier i provodi interface CarrierInterface
 {
     
-    protected $_code = 'carriercode';
+    protected $_code = 'dostava';
 	
 	protected $_logger;
    
